@@ -6,6 +6,7 @@ import base.BaseTests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class LoginTests extends BaseTests {
 
@@ -15,8 +16,8 @@ public class LoginTests extends BaseTests {
         loginPage.setUsername("tomsmith");
         loginPage.setPassword("SuperSecretPassword!");
         SecureAreaPage secureAreaPage = loginPage.clickLoginBtn();
-        assertEquals(secureAreaPage.getAlertText(), "You logged into a secure area! x"
-               ,"Alert text incorrect");
+        assertTrue(secureAreaPage.getAlertText().contains("You logged into a secure area!"),"Alert is incorrect");
+
 
     }
 }
